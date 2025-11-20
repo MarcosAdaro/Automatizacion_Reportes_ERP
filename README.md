@@ -118,7 +118,7 @@ KG_REAL
 
 Para calcular el peso correcto por producto se utiliza un esquema de búsqueda doble:
 
-=SIERROR(
+=SI.ERROR(
     BUSCARX([@COD_ART]; 'KG ROTO'!A:B; 'KG ROTO'!B:B);
     BUSCARX([@COD_ART]; 'KG SOPLADO'!A:B; 'KG SOPLADO'!B:B)
 )
@@ -145,59 +145,64 @@ Este dataset sirve como insumo para todos los dashboards operativos.
 
 El dataset anual se utiliza para alimentar los dashboards:
 
-Ventas Anuales por Categoría
+-Ventas Anuales por Categoría
 
-Ventas por Zona / Vendedor
+-Ventas por Zona / Vendedor
 
-Unidades vs Kilos: Comparativo Anual
+-Unidades vs Kilos: Comparativo Anual
 
-Dashboard General de Performance Comercial
+-Dashboard General de Performance Comercial
 
-(Agregá los enlaces a tus dashboards cuando quieras.)
+Enlace: https://lookerstudio.google.com/u/0/reporting/59214710-4f63-4bd2-9316-9a64847b39c9/page/bv6dF
 
 🗂 6. Estructura sugerida del repositorio
+
+```
 Reporte_Ventas_Anuales/
 │
-├── data/
-│   ├── ventas_raw_2025.xlsx        # Exportación del ERP
-│   ├── ventas_clean_2025.csv       # Dataset limpio
-│   └── tablas_pesos/               # Tablas de KG
-│       ├── kg_roto.xlsx
-│       └── kg_soplado.xlsx
+├── data/                             # Datos crudos y procesados
+│   ├── ventas_raw_2025.xlsx          # Exportación mensual del ERP (archivo original)
+│   ├── ventas_clean_2025.csv         # Dataset limpio generado en Google Sheets
+│   │
+│   └── tablas_pesos/                 # Tablas reales de pesos por producto
+│       ├── kg_roto.xlsx              # Pesos de productos rotomoldeados
+│       └── kg_soplado.xlsx           # Pesos de productos soplados (tanques)
 │
-├── sheets/
-│   └── formulas.md                 # Documentación de QUERY y BUSCARX
+├── sheets/                           # Documentación técnica del procesamiento
+│   └── formulas.md                   # QUERY, BUSCARX y pasos de limpieza
 │
-├── dashboards/
-│   └── links.txt                   # Enlaces a Looker Studio
+├── dashboards/                       # Accesos y documentación visual
+│   └── links.txt                     # Enlaces a Looker Studio vinculados a este dataset
 │
-└── README.md
+└── README.md                         # Documentación principal del proyecto
+```
+
 
 🧑‍💻 7. Tecnologías utilizadas
 
-ERP Neuralsoft / Presupuesto (fuente)
+-ERP Neuralsoft / Presupuesto (fuente)
 
-Google Sheets
+-Google Sheets
 
-QUERY
+-QUERY
 
-BUSCARX
+-BUSCARX
 
-Normalización de datos
+-Normalización de datos
 
-Looker Studio
+-Looker Studio
 
-GitHub (control de versiones y portafolio profesional)
+-GitHub (control de versiones y portafolio profesional)
 
 🎯 8. Objetivo del proyecto
 
-Centralizar y documentar el proceso real de generación del dataset anual de ventas, asegurando:
+*Centralizar y documentar el proceso real de generación del dataset anual de ventas, asegurando:
 
-limpieza consistente
+-Limpieza consistente
 
-trazabilidad
+-Trazabilidad
 
-preparación para dashboards
+-Preparación para dashboards
 
-estandarización del cálculo de KG por producto
+-Estandarización del cálculo de KG por producto
 
